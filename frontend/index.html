@@ -283,7 +283,14 @@ html[data-theme=light] #review-history-pane .history-fraud{color:#bd2034!importa
 html[data-theme=light] #review-history-pane .history-verified{color:#176b35!important}
 </style>
 <style>
-#review-history-tbody td.txid {
+/* Nền tối: chữ trắng */
+html[data-theme="dark"] #review-history-tbody td.txid {
+    color: #ffffff !important;
+    font-weight: 800;
+}
+
+/* Nền sáng: chữ đen */
+html[data-theme="light"] #review-history-tbody td.txid {
     color: #000000 !important;
     font-weight: 800;
 }
