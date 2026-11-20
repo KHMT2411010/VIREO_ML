@@ -1,0 +1,5 @@
+Chay START_WINDOWS.bat, khong mo HTML truc tiep.
+Dang ky/nhap qua backend, hoac Trai nghiem demo.
+Dang xuat o menu trai canh ten nguoi dung.
+Tong quan > Nhap giao dich thu cong.
+Tai khoan demo dung chung danh sach giao dich, khong ket noi ngan hang that.

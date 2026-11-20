@@ -1,0 +1,5 @@
+VIREO UI Upgrade 01 + Frequency Encoding 13
+
+Giu giao dien nang cap 01 lam goc. Backend da duoc thay bang Frequency Encoding 13 dac trung, IF + PyOD ECOD, nguong toi uu F1 tren Validation theo notebook (1)(1).
+Kem model da huan luyen va nut dang nhap demo nhan vien.
+Xem README_VI.md de chay va doc gioi han mo hinh.

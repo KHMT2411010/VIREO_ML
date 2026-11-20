@@ -1,0 +1,39 @@
+VIREO FULLSTACK – Isolation Forest + ECOD PyOD CHÍNH THỨC
+
+1. Bản này KHÔNG đóng gói mô hình ECOD tự triển khai hoặc mô hình giả. Cần huấn luyện lần đầu.
+2. Giải nén vào thư mục MỚI, đừng ghi đè lên bản VIREO cũ đang chạy.
+3. Đặt Bank_Transaction_Fraud_Detection.csv (24 cột gốc) cùng cấp START_WINDOWS.bat.
+4. Bạn đang dùng Python 3.15 và đã cài pandas 3.1.1, scikit-learn 1.9.1, FastAPI. Trước tiên thử:
+
+   .\.venv\Scripts\python.exe -m pip install --only-binary=:all: pyod
+   .\.venv\Scripts\python.exe -c "from pyod.models.ecod import ECOD; print('PyOD ECOD OK')"
+
+   Nếu báo No matching distribution / numba / llvmlite incompatibility với Python 3.15,
+   KHÔNG sửa thuật toán ECOD. Dùng Python 3.13 64-bit để tạo môi trường cho riêng dự án:
+   py -3.13 -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install -r backend\requirements-py313.txt
+   .\.venv\Scripts\python.exe -c "from pyod.models.ecod import ECOD; print('PyOD ECOD OK')"
+
+   (Nếu .venv đã tạo bằng Python 3.15, hãy đổi tên thư mục .venv thành .venv_py315_backup
+    trước khi tạo .venv mới. Không cần gỡ Python 3.15 khỏi máy.)
+
+5. Sau khi import thành công, chạy trong thư mục gốc:
+   .\.venv\Scripts\python.exe backend\train.py --csv Bank_Transaction_Fraud_Detection.csv
+
+   Dữ liệu phải có cột Is_Fraud để lựa chọn ngưỡng F1 trên Validation.
+   Chương trình tạo backend/models/preprocessor.joblib, isolation_forest.joblib,
+   ecod_pyod.joblib và metrics.json (chỉ sau khi chạy huấn luyện thành công).
+
+6. Khởi động Backend:
+   .\.venv\Scripts\python.exe -m uvicorn main:app --app-dir backend --host 127.0.0.1 --port 8000
+   Mở: http://127.0.0.1:8000
+   Kiểm tra: http://127.0.0.1:8000/api/health
+
+7. Dùng CSV sample/Bank_Transaction_2000_Goc.csv để thử 2.000 dòng.
+   Trong trang Phân tích giao dịch, chọn file để nhận điểm IF + ECOD từ FastAPI.
+
+CHÚ Ý:
+- Chưa kiểm thử chạy thực tế PyOD trong môi trường tạo ZIP; phải xác minh trên máy bạn.
+- Không cam kết ROC-AUC / Precision tốt. Đánh giá kết quả ở metrics.json sau huấn luyện.
+- Tài khoản demo và lịch sử xử lý dùng localStorage, không có xác thực server.
+- Chỉ sử dụng dữ liệu giả lập hoặc dữ liệu nghiên cứu được phép chia sẻ.

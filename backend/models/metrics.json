@@ -1,0 +1,109 @@
+{
+  "pipeline_id": "frequency_13_max_f1_validation_v1",
+  "threshold_method": "max_f1_validation",
+  "training_note": "Đồng bộ notebook Do_an_IF_ECOD_13_dac_trung_Frequency_Encoding (1)(1).ipynb",
+  "encoding": "Frequency Encoding",
+  "raw_columns": 24,
+  "source_positive_labels": 10088,
+  "feature_columns": [
+    "Transaction_Amount",
+    "Account_Balance",
+    "Age",
+    "Transaction_Hour",
+    "Transaction_Day",
+    "Transaction_Month",
+    "Transaction_Type",
+    "Merchant_Category",
+    "Transaction_Device",
+    "Transaction_Location",
+    "Device_Type",
+    "Account_Type",
+    "Transaction_Currency"
+  ],
+  "num_features": [
+    "Transaction_Amount",
+    "Account_Balance",
+    "Age",
+    "Transaction_Hour",
+    "Transaction_Day",
+    "Transaction_Month"
+  ],
+  "categorical_features": [
+    "Transaction_Type",
+    "Merchant_Category",
+    "Transaction_Device",
+    "Transaction_Location",
+    "Device_Type",
+    "Account_Type",
+    "Transaction_Currency"
+  ],
+  "category_cardinalities": {
+    "Transaction_Type": 5,
+    "Merchant_Category": 6,
+    "Transaction_Device": 20,
+    "Transaction_Location": 148,
+    "Device_Type": 4,
+    "Account_Type": 3,
+    "Transaction_Currency": 1
+  },
+  "contamination": 0.05,
+  "model_setup": {
+    "if": {
+      "n_estimators": 100,
+      "max_samples": "auto",
+      "contamination": 0.05,
+      "random_state": 42
+    },
+    "ecod": {
+      "contamination": 0.05,
+      "n_jobs": 1
+    }
+  },
+  "selection_note": "F1 tối đa trên Validation có nhãn, Test chỉ đánh giá; bất thường không đồng nghĩa gian lận",
+  "test_label_prevalence": 0.05043333333333333,
+  "trained_rows": 200000,
+  "train_rows": 140000,
+  "validation_rows": 30000,
+  "test_rows": 30000,
+  "features": 13,
+  "method_ecod": "PyOD ECOD (official)",
+  "models": {
+    "if": {
+      "threshold": 0.5040194575422517,
+      "val_f1": 0.09686888454000166,
+      "test": {
+        "precision": 0.0502298950290622,
+        "recall": 0.7653668208856577,
+        "f1": 0.09427280498229332,
+        "roc_auc": 0.5021588794888897,
+        "average_precision": 0.05182405671613102,
+        "tn": 6591,
+        "fp": 21896,
+        "fn": 355,
+        "tp": 1158
+      }
+    },
+    "ecod": {
+      "threshold": 10.173557747266152,
+      "val_f1": 0.09617284344020648,
+      "test": {
+        "precision": 0.050469915381785344,
+        "recall": 0.9973562458691342,
+        "f1": 0.09607793200050936,
+        "roc_auc": 0.5009326386305637,
+        "average_precision": 0.05141142208009595,
+        "tn": 97,
+        "fp": 28390,
+        "fn": 4,
+        "tp": 1509
+      }
+    }
+  },
+  "currency": "INR",
+  "seed": 42,
+  "python_version": "3.12.14",
+  "sklearn_version": "1.8.0",
+  "pyod_version": "3.6.8",
+  "if_score_direction": "-score_samples (higher = more abnormal)",
+  "ecod_score_direction": "decision_function (higher = more abnormal)"
+}

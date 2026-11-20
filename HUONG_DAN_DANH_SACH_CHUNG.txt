@@ -1,0 +1,10 @@
+Danh sach chung cho CSV va nhap thu cong
+
+Giao dich thu cong duoc luu cung CSV trong SQLite, khong can xoa CSV truoc.
+Tai CSV moi se bo sung vao danh sach, khong xoa giao dich cu.
+Ma giao dich trung voi du lieu da luu: giu ban cu va ket qua xac minh cu.
+Nhap thu cong trung ma: bao loi, can doi ma.
+Chi nut Xoa toan bo moi xoa danh sach chung.
+Phan thong tin CSV (EDA) mo ta file vua tai, cac thong ke giao dich la toan danh sach chung.
+Bo o Dia diem thua; giu Transaction_Location vi model Frequency 13 can cot nay.
+Mo http://127.0.0.1:8013 sau khi chay START_WINDOWS.bat.
