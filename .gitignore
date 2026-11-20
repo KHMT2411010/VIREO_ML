@@ -1,0 +1,18 @@
+# Moi truong Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Cau hinh rieng
+.env
+.env.*
+!.env.example
+
+# Du lieu tai khoan va giao dich tren may
+backend/data/
+backend/*.sqlite3
+backend/*.sqlite3-*
+
+# Thu vien frontend
+node_modules/
